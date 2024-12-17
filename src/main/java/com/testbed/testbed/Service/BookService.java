@@ -5,7 +5,6 @@ import com.testbed.testbed.Repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +19,7 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    @Cacheable(cacheNames = "books", key = "#id")
+//    @Cacheable(cacheNames = "books", key = "#id")
     public Book getBookById(Long id) {
         return bookRepository.findById(id).orElse(null);
     }
